@@ -35,7 +35,7 @@ in locales.js:
          'en-us': {
              'There is %1 apple in %2 basket': {
                 0 :   'There is no apple in %2 basket',
-                1 :   'There are %1 apples in %2 basket',
+                1 :   'There is %1 apple in %2 basket',
                 other : 'There are %1 apples in %2 basket'
              }
          }
