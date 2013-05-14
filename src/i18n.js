@@ -15,17 +15,14 @@ angular.module('angularity-i18n', [])
     return function(str) {
         var offset = 1;
         var _locales = i18n.get();
-        var entry = _locales[str];
+        var entry = _locales[str] || str;
 
         if (angular.isString(entry)){
             str = entry;
 
         } else {
-           if (arguments[1] && arguments[1] === 'plural') {
-               var plural = arguments[2] 
-               offset = 2;
-               str = entry[plural] || entry['other'] || str;
-           }
+            var plural = arguments[2] 
+            str = entry[plural] || entry['other'] || str;
         }
 
 		for (var i = offset; i < arguments.length; i++) {

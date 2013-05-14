@@ -25,12 +25,14 @@ in locales.js:
     var _locales = { 'en-us': { 'Hello %1, I am %2': 'Hello %1, I am %2' } };
 
 ### plural forms:
+
+if the value of the entry is an object, it would be treated as pluralization. And the first argument indicates the number.
+
 in template:
 
-    {{ 'There is %1 apple in %2 basket' | i18n:'plural':4:'my' }}
+    {{ 'There is %1 apple in %2 basket' | i18n:4:'my' }}
     
 in locales.js:
-
     var _locales = {
          'en-us': {
              'There is %1 apple in %2 basket': {
@@ -48,5 +50,10 @@ in controller:
 
 or
 
-    i18nFilter('There is %1 apple in %2 basket', 'plural', 4, 'my');
+    i18nFilter('There is %1 apple in %2 basket', 4, 'my');
+
+or
+
+	// function TestController(i18n)...
+	i18n.t('Hello world');
 

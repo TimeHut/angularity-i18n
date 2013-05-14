@@ -22,7 +22,7 @@ describe('angularity-i18n', function(){
 			expect(i18n.get()).toEqual(locales);
 		}))	
 		it('should translate when call t', inject(function(i18n){
-			expect(i18n.t('There is %1 apple in %2 basket', 'plural', 4, 'my')).toEqual('There are 4 apples in my basket');
+			expect(i18n.t('There is %1 apple in %2 basket', 4, 'my')).toEqual('There are 4 apples in my basket');
 		}));
 	});
 	describe('filter', function(){
@@ -51,7 +51,7 @@ describe('angularity-i18n', function(){
 			expect(t('Hello %1, I am %2', 'Bob', 'Tom')).toEqual('Hello Bob, I am Tom');
 		})
 		it('should support pluralization', function(){
-			expect(t('There is %1 apple in %2 basket', 'plural', 4, 'my')).toEqual('There are 4 apples in my basket' )
+			expect(t('There is %1 apple in %2 basket', 4, 'my')).toEqual('There are 4 apples in my basket' )
 		})
 	})
 })
