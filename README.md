@@ -33,6 +33,7 @@ in template:
     {{ 'There is %1 apple in %2 basket' | i18n:4:'my' }}
     
 in locales.js:
+
     var _locales = {
          'en-us': {
              'There is %1 apple in %2 basket': {
