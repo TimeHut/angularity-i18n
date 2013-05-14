@@ -3,17 +3,18 @@
 angular.module('angularity-i18n', []);
 
 angular.module('angularity-i18n', [])
-.factory('i18nEntry', function(){
+.factory('i18n', function($filter){
     var dict;
     return {
         set : function(v) { dict = v },
-        get : function() { return dict }
+        get : function() { return dict },
+        t : function(){ return $filter('i18n').apply(null, arguments) }
     }
 })
-.filter('i18n', function(i18nEntry) {
-	return function(str) {
+.filter('i18n', function(i18n) {
+    return function(str) {
         var offset = 1;
-        var _locales = i18nEntry.get();
+        var _locales = i18n.get();
         var entry = _locales[str];
 
         if (angular.isString(entry)){
