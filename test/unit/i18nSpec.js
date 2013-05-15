@@ -21,8 +21,8 @@ describe('angularity-i18n', function(){
 		it('should set and get dictionary', inject(function(i18n){
 			expect(i18n.get()).toEqual(locales);
 		}))	
-		it('should translate when call t', inject(function(i18n){
-			expect(i18n.t('There is %1 apple in %2 basket', 4, 'my')).toEqual('There are 4 apples in my basket');
+		it('should translate when called', inject(function(i18n){
+			expect(i18n('There is %1 apple in %2 basket', 4, 'my')).toEqual('There are 4 apples in my basket');
 		}));
 	});
 	describe('filter', function(){

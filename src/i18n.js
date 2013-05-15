@@ -5,11 +5,12 @@ angular.module('angularity-i18n', []);
 angular.module('angularity-i18n', [])
 .factory('i18n', function($filter){
     var dict;
-    return {
-        set : function(v) { dict = v },
-        get : function() { return dict },
-        t : function(){ return $filter('i18n').apply(null, arguments) }
+    var fn = function(){
+        return $filter('i18n').apply(null, arguments) 
     }
+    fn.set = function(v) { dict = v };
+    fn.get = function() { return dict || {} }
+    return fn;
 })
 .filter('i18n', function(i18n) {
     return function(str) {
@@ -21,7 +22,7 @@ angular.module('angularity-i18n', [])
             str = entry;
 
         } else {
-            var plural = arguments[2] 
+            var plural = arguments[1] 
             str = entry[plural] || entry['other'] || str;
         }
 
