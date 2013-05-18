@@ -14,6 +14,7 @@ angular.module('angularity-i18n', [])
 })
 .filter('i18n', function(i18n) {
     return function(str) {
+        if (str == undefined) return "";
         var offset = 1;
         var _locales = i18n.get();
         var entry = _locales[str] || str;
